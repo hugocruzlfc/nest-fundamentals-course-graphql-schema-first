@@ -46,6 +46,7 @@ $ npm run test:cov
 ```bash
 npm i @nestjs/graphql graphql @nestjs/apollo apollo-server-express ts-morph
 npm install @nestjs/typeorm typeorm pg
+npm i class-validator class-transformer
 ```
 
 ## Generate types

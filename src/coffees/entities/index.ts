@@ -1,1 +1,2 @@
-export * from './coffee.entity/coffee.entity';
+export * from './coffee.entity';
+export * from './flavor.entity';
