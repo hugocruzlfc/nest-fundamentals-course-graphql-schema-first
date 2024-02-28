@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { CoffeesModule } from './coffees/coffees.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { DateScalar } from './common';
 
 @Module({
   imports: [
@@ -23,6 +24,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     CoffeesModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [DateScalar],
 })
 export class AppModule {}
