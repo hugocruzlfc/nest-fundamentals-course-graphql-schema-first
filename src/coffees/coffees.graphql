@@ -1,9 +1,17 @@
 scalar Date
 
+interface Drink {
+  name: String!
+}
+
+type Tea implements Drink {
+  name: String!
+}
+
 """
 Coffee Model
 """
-type Coffee {
+type Coffee implements Drink {
   id: ID!
   name: String!
   brand: String!
@@ -31,6 +39,7 @@ input UpdateCoffeeInput {
 type Query {
   coffees: [Coffee!]!
   coffee(id: ID!): Coffee!
+  drinks: [Drink!]!
 }
 
 type Mutation {
