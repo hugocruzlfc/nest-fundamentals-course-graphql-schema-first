@@ -8,6 +8,13 @@ type Tea implements Drink {
   name: String!
 }
 
+union DrinksResult = Tea | Coffee
+
+enum CoffeeType {
+  ARABICA
+  ROBUSTA
+}
+
 """
 Coffee Model
 """
@@ -17,6 +24,7 @@ type Coffee implements Drink {
   brand: String!
   flavors: [Flavor!]
   createdAt: Date
+  type: CoffeeType
 }
 
 type Flavor {
@@ -28,18 +36,20 @@ input CreateCoffeeInput {
   name: String!
   brand: String!
   flavors: [String!]!
+  type: CoffeeType
 }
 
 input UpdateCoffeeInput {
   name: String
   brand: String
   flavors: [String!]
+  type: CoffeeType
 }
 
 type Query {
   coffees: [Coffee!]!
   coffee(id: ID!): Coffee!
-  drinks: [Drink!]!
+  drinks: [DrinksResult!]!
 }
 
 type Mutation {
