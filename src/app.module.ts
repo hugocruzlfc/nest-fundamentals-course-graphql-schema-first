@@ -4,12 +4,14 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { CoffeesModule } from './coffees/coffees.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DateScalar } from './common';
+import { PubSubModule } from './pub-sub/pub-sub.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
+      installSubscriptionHandlers: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -22,6 +24,7 @@ import { DateScalar } from './common';
       synchronize: true,
     }),
     CoffeesModule,
+    PubSubModule,
   ],
   controllers: [],
   providers: [DateScalar],

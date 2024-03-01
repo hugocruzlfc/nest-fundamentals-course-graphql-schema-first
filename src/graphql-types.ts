@@ -61,5 +61,9 @@ export abstract class IMutation {
     removeCoffee?: Coffee;
 }
 
+export abstract class ISubscription {
+    coffeeAdded?: Nullable<Coffee>;
+}
+
 export type DrinksResult = Tea | Coffee;
 type Nullable<T> = T | null;
