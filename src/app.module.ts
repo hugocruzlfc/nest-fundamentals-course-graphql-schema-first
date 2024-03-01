@@ -22,6 +22,7 @@ import { PubSubModule } from './pub-sub/pub-sub.module';
       database: 'coffee-graph',
       autoLoadEntities: true,
       synchronize: true,
+      logging: ['query', 'error'],
     }),
     CoffeesModule,
     PubSubModule,
